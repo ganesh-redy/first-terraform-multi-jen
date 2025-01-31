@@ -1,0 +1,29 @@
+pipeline{
+    agent any
+    env {
+        
+        GCP_CREDENTIALS = file("gcp-key")
+    }
+    stages {
+         stage ("connecting to git") {
+        steps{
+          git branch : "main", url : "https://github.com/ganesh-redy/first-terraform-multi-jen.git"
+        }
+    }
+    stage ("terraform init"){
+        step {
+            sh 'terrform init'
+        }
+    }
+    stage ("terraform plan"){
+        step {
+            sh 'terraform plan'
+        }
+    }
+     stage ("terraform apply"){
+        step {
+            sh 'terraform apply'
+        }
+    }
+}
+}
