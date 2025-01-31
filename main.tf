@@ -2,7 +2,6 @@ provider "google" {
  project = "mythic-inn-420620"
  zone="us-central1-a"
  region = "us-central1"
- credentials = file("file.json")
 
 }
 
